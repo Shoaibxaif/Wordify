@@ -8,7 +8,7 @@ const Navbar = (props) => {
         className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}
       >
         <div className="container-fluid ">
-          <a className="navbar-brand text-grey" href="/">
+          <a className="navbar-brand text-grey mx-3 " href="/">
             <b>{props.title}</b>
           </a>
           <button

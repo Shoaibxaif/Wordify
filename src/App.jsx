@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 function App() {
   const [mode, setMode] = useState("light");
+
   const [alert, setalert] = useState(null);
 
   const showalert = (message, type) => {
@@ -17,6 +18,8 @@ function App() {
       setalert(null);
     }, 2000);
   };
+
+ 
 
   const togglemode = () => {
     if (mode === "light") {

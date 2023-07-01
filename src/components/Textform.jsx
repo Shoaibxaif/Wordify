@@ -69,9 +69,11 @@ const Textform = (props) => {
   return (
     <>
       <div
-        className="my-5"
-        style={{ color: props.mode === "dark" ? "white" : "#3b4b5b" }}
-      >
+  className="my-5"
+  style={{
+    color: props.mode === "dark" ? "white" : "#3b4b5b"
+  }}
+>
         <h1 className="my-3 ">{props.heading}</h1>
         <textarea
           className="form-control"
