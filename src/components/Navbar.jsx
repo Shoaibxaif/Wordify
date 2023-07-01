@@ -1,7 +1,5 @@
-
 import React from "react";
-import PropTypes from 'prop-types'
-
+import PropTypes from "prop-types";
 
 const Navbar = (props) => {
   return (
@@ -13,7 +11,7 @@ const Navbar = (props) => {
               <b>{props.title}</b>
             </a>
             <button
-              className="navbar-toggler text-white"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -21,7 +19,7 @@ const Navbar = (props) => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span className="navbar-toggler-icon text-white"></span>
+              <span className="navbar-toggler-icon "></span>
             </button>
             <div
               className="collapse navbar-collapse"
@@ -29,7 +27,11 @@ const Navbar = (props) => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active text-white" aria-current="page" href="/">
+                  <a
+                    className="nav-link active text-white"
+                    aria-current="page"
+                    href="/"
+                  >
                     Home
                   </a>
                 </li>
@@ -39,17 +41,19 @@ const Navbar = (props) => {
                   </a>
                 </li>
               </ul>
-              <form className="d-flex" role="search">
+              <div className="form-check form-switch">
                 <input
-                  className="form-control me-2 mx-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
+                  className="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
                 />
-                <button className="btn btn-outline-info" type="submit">
-                  Search
-                </button>
-              </form>
+                <label
+                  className="form-check-label"
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  Enable DarkMode
+                </label>
+              </div>
             </div>
           </div>
         </nav>
@@ -58,13 +62,12 @@ const Navbar = (props) => {
   );
 };
 
-
 Navbar.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 Navbar.defaultProps = {
-  title: 'Your Title'
+  title: "Your Title",
 };
 
 export default Navbar;
