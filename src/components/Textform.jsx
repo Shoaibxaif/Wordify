@@ -4,10 +4,12 @@ const Textform = (props) => {
   const changetoUpper = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showalert("Converted to UpperCase","Success")
   };
   const changetoLower = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showalert("Converted to LowerCase","Success")
   };
   const changetoCamelCase = () => {
     let newText = function textToCamelCase(text) {
@@ -22,6 +24,7 @@ const Textform = (props) => {
     };
 
     setText(newText);
+    props.showalert("Converted to CamelCase","Success")
   };
   const changetoUnicode = () => {
     let newText = function convertToUnicode(str) {
@@ -36,6 +39,7 @@ const Textform = (props) => {
     };
 
     setText(newText);
+    props.showalert("Converted From Text to Unicode","Success")
   };
 
   const changetoText = () => {
@@ -46,15 +50,19 @@ const Textform = (props) => {
     };
 
     setText(newText);
+    props.showalert("Converted From Unicode to Text","Success")
+  };
+  
+  const clearAll = () => {
+    setText("");
+    props.showalert("All Cleared","Success")
+  
   };
 
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
 
-  const clearAll = () => {
-    setText("");
-  };
 
   const [text, setText] = useState("Enter text here");
 

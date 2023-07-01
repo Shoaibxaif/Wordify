@@ -30,12 +30,12 @@ const Navbar = (props) => {
                   aria-current="page"
                   href="/"
                 >
-                  {/* Home */}
+                  Home
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link text-grey" href="/">
-                  {/* About */}
+                  About
                 </a>
               </li>
             </ul>
