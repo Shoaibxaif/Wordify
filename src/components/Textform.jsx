@@ -139,7 +139,7 @@ const Textform = (props) => {
         <p>
           Words :{" "}
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }

@@ -27,7 +27,7 @@ const Navbar = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li className="nav-item">
                 <Link 
-                  className="nav-link active text-grey"
+                  className="nav-link  text-grey"
                   aria-current="page"
                   to="/"
                 >
