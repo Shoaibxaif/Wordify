@@ -1,8 +1,9 @@
-// import About from "./components/About";
+import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import Textform from "./components/Textform";
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -19,8 +20,6 @@ function App() {
     }, 2000);
   };
 
- 
-
   const togglemode = () => {
     if (mode === "light") {
       setMode("dark");
@@ -35,16 +34,25 @@ function App() {
   };
   return (
     <>
-      <Navbar title={"Textify"} mode={mode} togglemode={togglemode} />
-      <Alert alert={alert} />
-      <div className="container">
-        <Textform
-          heading={"Write Text Here To Analyze"}
-          mode={mode}
-          showalert={showalert}
-        />
-        {/* <About/> */}
-      </div>
+      <Router>
+        <Navbar title={"Wordify"} mode={mode} togglemode={togglemode} />
+        <Alert alert={alert} />
+        <div className="container">
+          <Routes>
+            <Route
+             exact path="/"
+              element={
+                <Textform
+                  heading={"Write Text Here To Analyze"}
+                  mode={mode}
+                  showalert={showalert}
+                />
+              }
+            />
+            <Route exact path="/about" element={<About mode={mode}  />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }

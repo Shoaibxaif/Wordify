@@ -1,32 +1,13 @@
-import React, { useState } from "react";
-
-const About = () => {
-    const [MyStyle, setMyStyle] = useState({
-      backgroundColor: "white",
-      color: "black"
-    });
-
-    const[Btntext, setBtnText] = useState("Enable Dark Mode")
-  
-    const toggleStyle = () => {
-      if (MyStyle.color === "black") {
-        setMyStyle({
-          backgroundColor: "black",
-          color: "white"
-        });
-          setBtnText("Enable Light Mode")
-      } else {
-        setMyStyle({
-          backgroundColor: "white",
-          color: "black"
-        });
-        setBtnText("Enable Dark Mode")
-      }
-    };
+const About = (props) => {
+  let MyStyle = {
+    color: props.mode === "dark" ? "white" : "black",
+    backgroundColor: props.mode === "dark" ? "#3b4b5b" : "white",
+  };
 
   return (
     <>
-      <div className="container my-5 p-3" style={MyStyle}>
+      <div className="container my-5 p-3  " style={{ color: MyStyle.color }}>
+        <h1>About Us </h1>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
@@ -39,7 +20,7 @@ const About = () => {
                 aria-controls="collapseOne"
                 style={MyStyle}
               >
-                Accordion Item #1
+                <strong>Introduction</strong>
               </button>
             </h2>
             <div
@@ -47,17 +28,15 @@ const About = () => {
               className="accordion-collapse collapse show"
               aria-labelledby="headingOne"
               data-bs-parent="#accordionExample"
+              style={MyStyle}
             >
-              <div className="accordion-body" style={MyStyle}>
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div className="accordion-body">
+                "Welcome to Wordify, your one-stop destination for all your text
+                modification needs. With Wordify, you can easily transform your
+                text into various formats to suit your requirements. Whether you
+                need to convert text to uppercase, lowercase, camelcase,
+                Unicode, Unicode to text, or clear all formatting, our powerful
+                text modifier tool has got you covered."
               </div>
             </div>
           </div>
@@ -72,7 +51,7 @@ const About = () => {
                 aria-controls="collapseTwo"
                 style={MyStyle}
               >
-                Accordion Item #2
+                <strong>Description</strong>
               </button>
             </h2>
             <div
@@ -80,17 +59,15 @@ const About = () => {
               className="accordion-collapse collapse"
               aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample"
+              style={MyStyle}
             >
-              <div className="accordion-body" style={MyStyle}>
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div className="accordion-body">
+                "At Wordify, we understand that words hold immense power. Our
+                mission is to provide you with a user-friendly platform that
+                empowers you to customize and enhance your text effortlessly.
+                With just a few simple clicks, you can modify your text to make
+                it stand out, comply with specific formatting guidelines, or
+                simply explore creative possibilities."
               </div>
             </div>
           </div>
@@ -105,7 +82,7 @@ const About = () => {
                 aria-controls="collapseThree"
                 style={MyStyle}
               >
-                Accordion Item #3
+                <strong>Features</strong>
               </button>
             </h2>
             <div
@@ -113,25 +90,27 @@ const About = () => {
               className="accordion-collapse collapse"
               aria-labelledby="headingThree"
               data-bs-parent="#accordionExample"
+              style={MyStyle}
             >
-              <div className="accordion-body" style={MyStyle}>
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div className="accordion-body">
+                "Wordify offers a diverse range of text modification methods.
+                Convert your text to uppercase to add emphasis and make a bold
+                statement. Transform it to lowercase for a more casual and
+                approachable tone. Utilize camelcase to give your text a stylish
+                touch, perfect for titles and headings. Explore the world of
+                Unicode and effortlessly convert between Unicode characters and
+                their corresponding textual representations. And when you want a
+                fresh start, our clear all feature removes all formatting,
+                allowing you to begin anew with a clean slate." "Whether you're
+                a writer, student, professional, or simply someone who loves
+                playing with words, Wordify is here to make your text
+                modification journey enjoyable and hassle-free. Experience the
+                power of transforming your text with Wordify and unlock a new
+                level of creativity."
               </div>
             </div>
           </div>
         </div>
-
-        <button className="btn btn-primary my-2" onClick={toggleStyle}>
-          {Btntext}
-        </button>
       </div>
     </>
   );

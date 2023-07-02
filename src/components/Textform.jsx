@@ -4,12 +4,12 @@ const Textform = (props) => {
   const changetoUpper = () => {
     let newText = text.toUpperCase();
     setText(newText);
-    props.showalert("Converted to UpperCase","Success")
+    props.showalert("Converted to UpperCase", "Success");
   };
   const changetoLower = () => {
     let newText = text.toLowerCase();
     setText(newText);
-    props.showalert("Converted to LowerCase","Success")
+    props.showalert("Converted to LowerCase", "Success");
   };
   const changetoCamelCase = () => {
     let newText = function textToCamelCase(text) {
@@ -24,7 +24,7 @@ const Textform = (props) => {
     };
 
     setText(newText);
-    props.showalert("Converted to CamelCase","Success")
+    props.showalert("Converted to CamelCase", "Success");
   };
   const changetoUnicode = () => {
     let newText = function convertToUnicode(str) {
@@ -39,7 +39,7 @@ const Textform = (props) => {
     };
 
     setText(newText);
-    props.showalert("Converted From Text to Unicode","Success")
+    props.showalert("Converted From Text to Unicode", "Success");
   };
 
   const changetoText = () => {
@@ -50,30 +50,28 @@ const Textform = (props) => {
     };
 
     setText(newText);
-    props.showalert("Converted From Unicode to Text","Success")
+    props.showalert("Converted From Unicode to Text", "Success");
   };
-  
+
   const clearAll = () => {
     setText("");
-    props.showalert("All Cleared","Success")
-  
+    props.showalert("All Cleared", "Success");
   };
 
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
 
-
   const [text, setText] = useState("Enter text here");
 
   return (
     <>
       <div
-  className="my-5"
-  style={{
-    color: props.mode === "dark" ? "white" : "#3b4b5b"
-  }}
->
+        className="my-5"
+        style={{
+          color: props.mode === "dark" ? "white" : "#3b4b5b",
+        }}
+      >
         <h1 className="my-3 ">{props.heading}</h1>
         <textarea
           className="form-control"
@@ -89,41 +87,63 @@ const Textform = (props) => {
         ></textarea>
         <button
           className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`}
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
           onClick={changetoUpper}
         >
           Convert to UpperCase
         </button>
-        <button className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`} onClick={changetoLower}>
+        <button
+          className={`btn btn-${
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
+          onClick={changetoLower}
+        >
           Convert to LowerCase
         </button>
-        <button className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`} onClick={changetoCamelCase}>
+        <button
+          className={`btn btn-${
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
+          onClick={changetoCamelCase}
+        >
           Convert to CamelCase
         </button>
-        <button className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`} onClick={changetoUnicode}>
+        <button
+          className={`btn btn-${
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
+          onClick={changetoUnicode}
+        >
           Convert to Unicode
         </button>
-        <button className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`} onClick={changetoText}>
+        <button
+          className={`btn btn-${
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
+          onClick={changetoText}
+        >
           Convert Unicode to Text
         </button>
-        <button className={`btn btn-${
-                  props.mode === "light" ? "info" : "dark"
-                } my-3 mx-1`} onClick={clearAll}>
+        <button
+          className={`btn btn-${
+            props.mode === "light" ? "info" : "dark"
+          } my-3 mx-1`}
+          onClick={clearAll}
+        >
           Clear All
         </button>
 
         <h2>Summary</h2>
         <p>Character : {text.length}</p>
-        <p>Words : {text.split(" ").length - 1}</p>
+        <p>
+          Words :{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }
+        </p>
         <p>Lines: {text.split("\n").length - 1}</p>
 
         <div className="container preview">
